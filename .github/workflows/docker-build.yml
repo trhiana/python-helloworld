@@ -33,6 +33,6 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          tags: trhiana/python-helloworld:latest 
           platforms: linux/amd64, linux/arm64
           push: true
+          tags: trhiana/python-helloworld:latest 
