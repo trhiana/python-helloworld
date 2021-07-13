@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - "master"
+  pull_request:
+    branches:
+      - "master"
 
 jobs:
   docker:
@@ -22,14 +25,14 @@ jobs:
         name: Login to DockerHub
         uses: docker/login-action@v1
         with: 
-          username: ${{secrets.trhiana}}
-          password: ${{secrets.1631a179-1242-4421-b625-09d892b68690}}
+          username: ${{secrets.DOCKERHUB_USERNAME}}
+          password: ${{secrets.DOCKERHUB_TOKEN}}
       - 
         name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
           image: python-helloworld
-          tags: latest 
+          tags: trhiana/python-helloworld:latest 
           platforms: linux/amd64, linux/arm64
           push: true
